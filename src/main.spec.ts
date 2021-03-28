@@ -1,8 +1,12 @@
-import { Main } from "./main"
+import request from "supertest";
+import { createApp } from "./test/utils/createApp";
 
 describe("Default test", () => {
-  it("should work", () => {
-    const main = new Main("Hello world")
-    expect(main.getParam()).toBe("Hello world")
-  })
-})
+  it("should work", async (end) => {
+    const app = createApp();
+    const { body } = await request(app).get("/movies");
+    console.log(body);
+
+    end();
+  });
+});

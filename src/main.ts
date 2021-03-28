@@ -1,16 +1,5 @@
-/**
- * Main Class
- */
-export class Main {
-  public static COMMANDS = "Hello World"
+import { createApp } from "./test/utils/createApp";
 
-  public param: string
+const app = createApp();
 
-  constructor(param: string) {
-    this.param = param
-  }
-
-  public getParam(): string {
-    return this.param
-  }
-}
+app.listen(() => console.log(`Server started at http://localhost:3000`));
